@@ -40,7 +40,7 @@ This project implements a CRUD (Create, Read, Update, Delete) functionality for 
 4. Run the application:
 
    ```bash
-   npm start
+   nodemon index.js
    ```
 
 5. Access the application in your browser:
