@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Chats</title>
+    <link rel="stylesheet" href="./css/bootstrap.min.css">.
+</head>
+<body>
+    <div class="container">
+        <h1>All Chats</h1>
+        <form method="GET" action="/chats/new">
+            <button class="btn btn-primary m-2">New Chat</button>
+        </form>
+        <div class="row justify-content-between">
+          <% for( let chat of allchats ) { %>
+            <div class="col-lg-4">
+              <div class="card my-2" style="width: 18rem;">
+                <div class="card-body">
+                  <h5 class="card-title">From : <%= chat.from %></h5>
+                  <h6 class="card-subtitle mb-2 text-body-secondary">To : <%= chat.to %></h6>
+                  <p class="card-text bg-primary text-light p-2 border rounded-pill"><%= chat.message %></p>
+                  <div class="d-flex justify-content-between m-3">
+                    <form method="GET" action="chats/<%= chat._id %>/edit">
+                      <button class="btn btn-warning">Edit</button>
+                    </form>
+                    <form method="POST" action="chats/<%= chat._id %>?_method=DELETE">
+                      <button class="btn btn-danger">Delete</button>
+                    </form>
+                  </div>
+                  
+                  <a  class="card-link"><%= chat.createdAt.toString().split(" ")[4] %></a>
+                  <a  class="card-link"><%= chat.createdAt.toString().split(" ").slice(0,4).join(" ") %></a>
+                </div>
+            </div>
+            </div>
+            
+        <% } %>
+        </div>
+    </div>
+</body>
+</html>

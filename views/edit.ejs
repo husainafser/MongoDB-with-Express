@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Chat</title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css">.
+
+</head>
+<body>
+    <div class="container">
+        <h6>This message is sent by <b><%= chat.from %></b> to <b><%= chat.to %></b></h6>
+        <form method="POST" action="/chats/<%= chat._id %>?_method=PUT" >
+            <div class="mb-3">
+                <label for="exampleFormControlTextarea1" class="form-label">Message</label>
+                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="message"><%= chat.message %></textarea>
+            </div>
+           
+            <button class="btn btn-primary">Update</button>
+        </form>
+    </div>
+</body>
+</html>
